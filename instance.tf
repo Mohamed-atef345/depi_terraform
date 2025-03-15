@@ -3,7 +3,7 @@ resource "aws_instance" "ec2_instance"{
   instance_type = "t2.micro"
   associate_public_ip_address = true
   key_name = "first_ec2_key"
-  vpc_security_group_ids = [ aws_security_group.allow_http.id ]  
+  vpc_security_group_ids = [ aws_security_group.allow_http.id , aws_security_group.allow_ssh]  
   subnet_id = aws_subnet.Public_Subnet.id
 
     user_data = <<-EOF
