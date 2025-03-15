@@ -77,7 +77,7 @@ resource "aws_security_group" "allow_ssh" {
   }
 }
 
-resource "aws_vpc_security_group_ingress_rule" "security_ingress_rule" {
+resource "aws_vpc_security_group_ingress_rule" "security_ingress_rule_ssh" {
   security_group_id = aws_security_group.allow_ssh.id
 
   cidr_ipv4   = "0.0.0.0/0"
@@ -86,7 +86,7 @@ resource "aws_vpc_security_group_ingress_rule" "security_ingress_rule" {
   to_port     = 22
 }
 
-resource "aws_vpc_security_group_egress_rule" "security_egress_rule" {
+resource "aws_vpc_security_group_egress_rule" "security_egress_rule_ssh" {
   security_group_id = aws_security_group.allow_ssh.id
 
   cidr_ipv4   = "0.0.0.0/0"
@@ -94,6 +94,7 @@ resource "aws_vpc_security_group_egress_rule" "security_egress_rule" {
   ip_protocol = "-1"
   to_port     = 0
 }
+
 
 
 
