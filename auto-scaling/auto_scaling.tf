@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "WebAppAutoScaling" {
-  vpc_zone_identifier = [var.public_subnet01, var.public_subnet02]
+  vpc_zone_identifier = var.subnet_ids
   desired_capacity    = 3
   max_size            = 5
   min_size            = 1
